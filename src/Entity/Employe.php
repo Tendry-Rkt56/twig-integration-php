@@ -9,7 +9,7 @@ class Employe extends Entity
      {
           $sql = "SELECT * FROM employees WHERE id > :id";
           if (isset($data['search'])) {
-               $sql .= " AND nom LIKE :search";
+               $sql .= " AND '$data[colonne]' LIKE :search";
           }
           $sql .= " LIMIT $limit offset $offset";
           $query = $this->db->getConn()->prepare($sql);
@@ -61,6 +61,30 @@ class Employe extends Entity
 
      }
 
+     public function find(int $id)
+     {
+          $sql = "SELECT * FROM employees WHERE id = :id";
+          $query = $this->db->getConn()->prepare($sql);
+          $query->bindValue(':id', $id, \PDO::PARAM_INT);
+          $query->execute();
+          return $query->fetch(\PDO::FETCH_OBJ);
+     }
+
+     public function update(int $id, array $data = [])
+     {
+          $sql = "UPDATE employees SET nom = :nom, prenom = :prenom, email = :email, phone = :phone, address = :address, poste = :poste, salaire = :salaire WHERE id = :id";
+          $query = $this->db->getConn()->prepare($sql);
+          $query->bindValue(':nom', $data['nom'], \PDO::PARAM_STR);
+          $query->bindValue(':prenom', $data['prenom'], \PDO::PARAM_STR);
+          $query->bindValue(':email', $data['email'], \PDO::PARAM_STR);
+          $query->bindValue(':phone', $data['phone'], \PDO::PARAM_STR);
+          $query->bindValue(':address', $data['address'], \PDO::PARAM_STR);
+          $query->bindValue(':poste', $data['poste'], \PDO::PARAM_STR);
+          $query->bindValue(':salaire', $data['salaire'], \PDO::PARAM_INT);
+          $query->bindValue(':id', $id, \PDO::PARAM_INT);
+
+          return $query->execute();
+     }
 }
 
 ?>

@@ -37,4 +37,18 @@ class EmployeController extends Controller
           return $this->redirect('employes.index');
      }
 
+     public function edit(int $id)
+     {
+          $employe = $this->manager->getEntity(Employe::class)->find($id);
+          return $this->twig->display('employes/edit.html.twig', [
+               'employe' => $employe,
+          ]);
+     }
+
+     public function update(int $id, array $data = [])
+     {
+          $execute = $this->manager->getEntity(Employe::class)->update($id, $data);
+          return $this->redirect('employes.index');
+     }
+
 }

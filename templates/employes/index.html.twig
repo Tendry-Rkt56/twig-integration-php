@@ -6,11 +6,14 @@
 {% block body %}
 
      <div class="containers container d-flex align-items-center justify-content-center flex-column gap-2">
-          <div class="container d-flex align-items-center justify-content-between">
+          <div class="container-fluid d-flex align-items-center justify-content-between">
                <h2>Les employés</h2>
                <a href="{{path('employes.create')}}" class="btn btn-primary">Ajouter</a>
           </div>
           <form action="" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
+               <select name="colonne" id="" class="form-select">
+                    <option value="nom">Nom</option>
+               </select>
                <input value="{{data.search ?? ''}}" type="text" placeholder="Rechercher..." class="form-control" name="search">
                <input value="{{limit}}" type="number" name="limit" id="" class="form-control" placeholder="Pagination...">
                <input type="submit" value="Rechercher" class="btn btn-primary btn-sm">
@@ -40,7 +43,7 @@
                               <td class="fw-bolder">{{employe.salaire | number_format(2, ',', ' ') | default('')}} Ar</td>
                               <td>
                                    <div class="d-flex gap-1">
-                                        <a href="" class="btn btn-sm btn-success">Voir</a>
+                                        <a href="{{path('employes.edit', {'id': employe.id, 'slug': employe.nom})}}" class="btn btn-sm btn-success">Voir</a>
                                         <form action="">
                                              <button class="btn btn-sm btn-danger">Supprimer</button>
                                         </form>

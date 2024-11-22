@@ -11,6 +11,8 @@ $container = new Container();
 $router->map('GET', '/admin/employes', fn () => $container->getController(EmployeController::class)->index($_GET), 'employes.index');
 $router->map('GET', '/admin/employes/create', fn () => $container->getController(EmployeController::class)->create(), 'employes.create');
 $router->map('POST', '/admin/employes/create', fn () => $container->getController(EmployeController::class)->store($_POST), 'employes.store');
+$router->map('GET', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $container->getController(EmployeController::class)->edit($id), 'employes.edit');
+$router->map('POST', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $container->getController(EmployeController::class)->update($id, $_POST), 'employes.update');
 
 
 $match = $router->match();
