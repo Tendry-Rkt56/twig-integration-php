@@ -1,14 +1,53 @@
 {% extends "base.html.twig" %}
 {% block title %} Les employés {% endblock %} 
 {% block styles %}
+     <link rel="stylesheet" href="{{asset('styles/employe/index.css')}}">
 {% endblock %}
 {% block body %}
 
-{% for employe in employes %}
-     <div>
-          <h1>{{ employe.nom }}</h1>
-          <h1>{{ employe.prenom }}</h1>
+     <div class="containers container d-flex align-items-center justify-content-center flex-column gap-2">
+          <div class="container d-flex align-items-center justify-content-between">
+               <h2>Les employés</h2>
+               <a href="" class="btn btn-primary">Ajouter</a>
+          </div>
+          <form action="" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
+               <input type="text" placeholder="Rechercher..." class="form-control" name="search">
+               <input type="number" name="pagination" id="" class="form-control">
+               <input type="submit" value="Rechercher" class="btn btn-primary btn-sm">
+          </form>
+          <table class="my-5 table table-striped">
+               <thead>
+                    <tr>
+                         <th></th>
+                         <th>Nom et prénom</th>
+                         <th>Email</th>
+                         <th>Phone</th>
+                         <th>Adresse</th>
+                         <th>Poste</th>
+                         <th></th>
+                    </tr>
+               </thead>
+               <tbody>
+                    {% for employe in employes %}
+                         <tr>
+                              <td></td>
+                              <td>{{employe.nom}} {{employe.prenom}}</td>
+                              <td>{{employe.email}}</td>
+                              <td>{{employe.phone}}</td>
+                              <td>{{employe.address}}</td>
+                              <td>{{employe.poste}}</td>
+                              <td>
+                                   <div class="d-flex gap-1">
+                                        <a href="" class="btn btn-sm btn-success">Voir</a>
+                                        <form action="">
+                                             <button class="btn btn-sm btn-danger">Supprimer</button>
+                                        </form>
+                                   </div>
+                              </td>
+                         </tr>
+                    {% endfor %}
+               </tbody>
+          </table>
      </div>
-{% endfor %}
 
 {% endblock %}
