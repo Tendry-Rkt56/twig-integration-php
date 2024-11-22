@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+{% block title %} Employés ~ Création {% endblock %}
+{% block styles %}
+     <link rel="stylesheet" href="{{asset('styles/employe/create.css')}}">
+{% endblock %}
+{% block body %}
+
+     <div class="containers container">
+          <h1>Ajouter un Employé</h1>
+          <div class="form-container">
+               <form action="" method="POST">
+                    <!-- Nom -->
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Entrez le nom de l'employé" required>
+
+                    <!-- Prénom -->
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Entrez le prénom de l'employé" required>
+
+                    <!-- Email -->
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez l'adresse e-mail" required>
+
+                    <!-- Poste -->
+                    <label for="poste">Poste :</label>
+                    <input type="text" id="poste" name="poste" placeholder="Ex. : Développeur, Manager" required>
+
+
+                    <!-- Date d'embauche -->
+                    <label for="date_embauche">Date d'embauche :</label>
+                    <input type="date" id="date_embauche" name="date_embauche" required>
+
+                    <!-- Salaire -->
+                    <label for="salaire">Salaire (€) :</label>
+                    <input type="number" id="salaire" name="salaire" placeholder="Entrez le salaire mensuel" required min="0" step="0.01">
+
+                    <!-- Bouton de soumission -->
+                    <button type="submit">Ajouter l'employé</button>
+               </form>
+          </div>
+
+     </div>
+
+{% endblock %}

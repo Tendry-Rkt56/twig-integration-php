@@ -11,8 +11,8 @@
                <a href="" class="btn btn-primary">Ajouter</a>
           </div>
           <form action="" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
-               <input type="text" placeholder="Rechercher..." class="form-control" name="search">
-               <input type="number" name="pagination" id="" class="form-control">
+               <input value="{{data.search ?? ''}}" type="text" placeholder="Rechercher..." class="form-control" name="search">
+               <input value="{{limit}}" type="number" name="limit" id="" class="form-control" placeholder="Pagination...">
                <input type="submit" value="Rechercher" class="btn btn-primary btn-sm">
           </form>
           <table class="my-5 table table-striped">
@@ -48,6 +48,14 @@
                     {% endfor %}
                </tbody>
           </table>
+          <div class="container d-flex align-items-center justify-content-between flex-row align-self-end">
+               <h5 class="fw-bolder">{{count}} / {{total}}</h5>
+               <div>
+                    {% for i in range(1, maxPages) %}
+                         <a href="?page={{i}}&search={{data.search}}&limit={{limit}}" class="paginate btn btn-outline-primary btn-sm">{{i}}</a>
+                    {% endfor %}
+               </div>
+          </div>
      </div>
 
 {% endblock %}

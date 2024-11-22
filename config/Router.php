@@ -8,7 +8,8 @@ $router = Routing::get();
 
 $container = new Container();
 
-$router->map('GET', '/admin/employes', fn () => $container->getController(EmployeController::class)->index($_GET), 'articles.index');
+$router->map('GET', '/admin/employes', fn () => $container->getController(EmployeController::class)->index($_GET), 'employes.index');
+$router->map('GET', '/admin/create', fn () => $container->getController(EmployeController::class)->create(), 'employes.create');
 
 
 $match = $router->match();
