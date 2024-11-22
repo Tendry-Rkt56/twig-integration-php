@@ -21,7 +21,7 @@
                {% endfor %}
           {% endif %}
                
-          <form action="" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
+          <form action="" id="form-search" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
                <select name="colonne" id="" class="form-select">
                     <option value="" disabled>Rechercher par</option>
                     {% for tri in tris %}
@@ -29,7 +29,7 @@
                     {% endfor %}
                </select>
                <input value="{{data.search ?? ''}}" type="text" placeholder="Rechercher..." class="form-control" name="search">
-               <input value="{{limit}}" type="number" name="limit" id="" class="form-control" placeholder="Pagination...">
+               <input value="{{limit}}" type="number" id="limit" name="limit" id="" class="form-control" placeholder="Pagination...">
                <input type="submit" value="Rechercher" class="btn btn-primary btn-sm">
           </form>
           <table class="my-5 table table-striped">
@@ -78,5 +78,7 @@
                </div>
           </div>
      </div>
+
+     <script src="{{asset('script/employes/index.js')}}"></script>
 
 {% endblock %}
