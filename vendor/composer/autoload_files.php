@@ -14,4 +14,6 @@ return array(
     'ffecb95d45175fd40f75be8a23b34f90' => $vendorDir . '/twig/twig/src/Resources/debug.php',
     'c7baa00073ee9c61edf148c51917cfb4' => $vendorDir . '/twig/twig/src/Resources/escaper.php',
     'f844ccf1d25df8663951193c3fc307c8' => $vendorDir . '/twig/twig/src/Resources/string_loader.php',
+    '463747f5bdc331fbb8cd781cc4c86562' => $baseDir . '/helpers/asset.php',
+    'a721497f59dae88b46e387d1674312bf' => $baseDir . '/helpers/path.php',
 );

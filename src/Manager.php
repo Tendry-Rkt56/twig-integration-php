@@ -10,7 +10,10 @@ class Manager
      private static $_instance;
      private static $_db;
      
-     public function getInstance()
+     /**
+      * @return self
+      */
+     public static function getInstance()
      {
           if (self::$_instance == null) self::$_instance = new self();
           return self::$_instance;

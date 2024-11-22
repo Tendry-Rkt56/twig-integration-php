@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block title %} Les employés {% endblock %} 
+{% block styles %}
+{% endblock %}
+{% block body %}
+
+{% for employe in employes %}
+     <div>
+          <h1>{{ employe.nom }}</h1>
+          <h1>{{ employe.prenom }}</h1>
+     </div>
+{% endfor %}
+
+{% endblock %}

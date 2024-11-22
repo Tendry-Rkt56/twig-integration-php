@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Administration</title>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-left: 20px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .navbar-menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* Dashboard card styles */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .card .icon {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <a href="#" class="navbar-brand">AdminGestion</a>
+    <ul class="navbar-menu">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Gestion des Employés</a></li>
+        <li><a href="#">Déconnexion</a></li>
+    </ul>
+</header>
+
+<!-- Main Content (Dashboard) -->
+<div class="container">
+    <!-- Card 1: Total Employees -->
+    <div class="card">
+        <div class="icon">👨‍💻</div>
+        <h3>320</h3>
+        <p>Total Employés</p>
+    </div>
+
+    <!-- Card 2: Employees in Department -->
+    <div class="card">
+        <div class="icon">🏢</div>
+        <h3>120</h3>
+        <p>Employés dans le département IT</p>
+    </div>
+
+    <!-- Card 3: Pending Requests -->
+    <div class="card">
+        <div class="icon">🔔</div>
+        <h3>8</h3>
+        <p>Demandes en attente</p>
+    </div>
+</div>
+
+</body>
+</html>
