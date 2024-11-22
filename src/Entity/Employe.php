@@ -58,6 +58,7 @@ class Employe extends Entity
           $query->bindValue(':hire_date', $data['hire_date'], \PDO::PARAM_STR);
           $query->bindValue(':salaire', $data['salaire'], \PDO::PARAM_INT);
 
+          $_SESSION['success'] = 'Nouvel employé crée';
           return $query->execute();
 
      }
@@ -84,6 +85,7 @@ class Employe extends Entity
           $query->bindValue(':salaire', $data['salaire'], \PDO::PARAM_INT);
           $query->bindValue(':id', $id, \PDO::PARAM_INT);
 
+          $_SESSION['success'] = 'Employé N°'.$id . ' mis à jour';
           return $query->execute();
      }
 
@@ -92,6 +94,7 @@ class Employe extends Entity
           $sql = "DELETE FROM employees WHERE id = :id";
           $query = $this->db->getConn()->prepare($sql);
           $query->bindValue(':id', $id, \PDO::PARAM_INT);
+          $_SESSION['danger'] = 'Employé N°'.$id . ' supprimé';
           return $query->execute();
      }
 }

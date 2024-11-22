@@ -10,6 +10,17 @@
                <h2>Les employés</h2>
                <a href="{{path('employes.create')}}" class="btn btn-primary">Ajouter</a>
           </div>
+          {% if flashes %}
+               {% for key, value in flashes %}
+                    {% if key == 'danger' or key == 'success' %}
+                         <div class="alert alert-{{key}} d-flex align-items-center justify-content-center container">
+                              {{value | join('')}}
+                         </div>
+                         {% do remove(key) %}
+                    {% endif %}
+               {% endfor %}
+          {% endif %}
+               
           <form action="" class="align-self-start d-flex align-items-center justify-content-center flex-row gap-2">
                <select name="colonne" id="" class="form-select">
                     <option value="" disabled>Rechercher par</option>
