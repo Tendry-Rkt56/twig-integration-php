@@ -52,4 +52,10 @@ class EmployeController extends Controller
           return $this->redirect('employes.index');
      }
 
+     public function delete(int $id)
+     {
+          $delete = $this->manager->getEntity(Employe::class)->delete($id);
+          return $this->redirect('employes.index');
+     }
+
 }

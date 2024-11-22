@@ -86,6 +86,14 @@ class Employe extends Entity
 
           return $query->execute();
      }
+
+     public function delete(int $id)
+     {
+          $sql = "DELETE FROM employees WHERE id = :id";
+          $query = $this->db->getConn()->prepare($sql);
+          $query->bindValue(':id', $id, \PDO::PARAM_INT);
+          return $query->execute();
+     }
 }
 
 ?>

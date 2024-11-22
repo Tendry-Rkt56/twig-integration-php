@@ -13,6 +13,7 @@ $router->map('GET', '/admin/employes/create', fn () => $container->getController
 $router->map('POST', '/admin/employes/create', fn () => $container->getController(EmployeController::class)->store($_POST), 'employes.store');
 $router->map('GET', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $container->getController(EmployeController::class)->edit($id), 'employes.edit');
 $router->map('POST', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $container->getController(EmployeController::class)->update($id, $_POST), 'employes.update');
+$router->map('POST', '/admin/employes/delete/[i:id]', fn ($id) => $container->getController(EmployeController::class)->delete($id), 'employes.delete');
 
 
 $match = $router->match();
