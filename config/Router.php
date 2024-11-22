@@ -2,6 +2,7 @@
 
 use App\Container;
 use App\Controller\EmployeController;
+use App\Controller\SecurityController;
 use Services\Routing;
 
 $router = Routing::get();
@@ -15,6 +16,7 @@ $router->map('GET', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $conta
 $router->map('POST', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $container->getController(EmployeController::class)->update($id, $_POST), 'employes.update');
 $router->map('POST', '/admin/employes/delete/[i:id]', fn ($id) => $container->getController(EmployeController::class)->delete($id), 'employes.delete');
 
+$router->map('GET', '/login', fn () => $container->getController(SecurityController::class)->login());
 
 $match = $router->match();
 if ($match !== null) {
