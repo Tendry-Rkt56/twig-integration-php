@@ -9,7 +9,7 @@ class EmployeController extends Controller
 
      public function index(array $data = [])
      {
-          $limit = $data['limit'] ?? 1;
+          $limit = $data['limit'] ?? 10;
           $total = $this->manager->getEntity(Employe::class)->count($data);
           $page = $data['page'] ?? 1;
           $offset = ($page - 1) * $limit;
@@ -29,6 +29,12 @@ class EmployeController extends Controller
      public function create()
      {
           return $this->twig->display('employes/create.html.twig');
+     }
+
+     public function store(array $data = [])
+     {
+          $execute = $this->manager->getEntity(Employe::class)->create($data);
+          return $this->redirect('employes.index');
      }
 
 }
