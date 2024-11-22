@@ -43,7 +43,7 @@ class Employe extends Entity
 
      public function create(array $data = [])
      {
-          $sql = "INSERT INTO employees (nom, prenom, email, phone, address, poste, hire_date) VALUES (:nom, :prenom, :email, :phone, :address, :poste, :hire_date)";
+          $sql = "INSERT INTO employees (nom, prenom, email, phone, address, poste, hire_date, salaire) VALUES (:nom, :prenom, :email, :phone, :address, :poste, :hire_date, :salaire)";
 
           $query = $this->db->getConn()->prepare($sql);
 
@@ -55,6 +55,7 @@ class Employe extends Entity
           $query->bindValue(':address', $data['address'], \PDO::PARAM_STR);
           $query->bindValue(':poste', $data['poste'], \PDO::PARAM_STR);
           $query->bindValue(':hire_date', $data['hire_date'], \PDO::PARAM_STR);
+          $query->bindValue(':salaire', $data['salaire'], \PDO::PARAM_INT);
 
           return $query->execute();
 
