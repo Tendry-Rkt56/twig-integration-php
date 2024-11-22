@@ -1,6 +1,6 @@
 # PHP avec Twig
 
-Un projet PHP brut utilisant **Twig** comme moteur de templates pour séparer la logique de présentation et de traitement. Ce projet montre l'intégration de Twig dans une application PHP afin de gérer des vues dynamiques de manière claire et modulaire. Il implémente un système CRUD simple (Créer, Lire, Mettre à jour, Supprimer) pour gérer des données.
+Un projet PHP brut utilisant **Twig** comme moteur de templates pour séparer la logique de présentation et de traitement. Ce projet montre l'intégration de Twig dans une application PHP afin de gérer des vues dynamiques de manière claire et modulaire.
 
 ## Technologies utilisées
 
