@@ -2,12 +2,15 @@
 
 use App\Container;
 use App\Controller\EmployeController;
+use App\Controller\HomeController;
 use App\Controller\SecurityController;
 use Services\Routing;
 
 $router = Routing::get();
 
 $container = new Container();
+
+$router->map('GET', '/', fn () => $container->getController(HomeController::class)->home(), 'app.home');
 
 $router->map('GET', '/admin/employes', fn () => $container->getController(EmployeController::class)->index($_GET), 'employes.index');
 $router->map('GET', '/admin/employes/create', fn () => $container->getController(EmployeController::class)->create(), 'employes.create');

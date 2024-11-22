@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block title %} Accueil {% endblock %}
+{% block styles %}
+     <link rel="stylesheet" href="{{asset('styles/home.css')}}">
+{% endblock %}
+
+{% block body %}
+
+     <div class="container-card container containers">
+          <div class="card">
+               <div class="icon">👨‍💻</div>
+               <h3>320</h3>
+               <p>Total Employés</p>
+          </div>
+
+          <div class="card">
+               <div class="icon">🏢</div>
+               <h3>120</h3>
+               <p>Employés dans le département IT</p>
+          </div>
+
+          <div class="card">
+               <div class="icon">🔔</div>
+               <h3>8</h3>
+               <p>Demandes en attente</p>
+          </div>
+     </div>
+
+
+{% endblock %}
