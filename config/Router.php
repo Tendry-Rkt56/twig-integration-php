@@ -20,6 +20,7 @@ $router->map('POST', '/admin/employes/[i:id]-[*:slug]', fn ($id, $slug) => $cont
 $router->map('POST', '/admin/employes/delete/[i:id]', fn ($id) => $container->getController(EmployeController::class)->delete($id), 'employes.delete');
 
 $router->map('GET', '/login', fn () => $container->getController(SecurityController::class)->login());
+$router->map('GET', '/register', fn () => $container->getController(SecurityController::class)->register());
 
 $match = $router->match();
 if ($match !== null) {

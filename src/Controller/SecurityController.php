@@ -10,4 +10,9 @@ class SecurityController extends Controller
           return $this->twig->display('security/login.html.twig');
      }
 
+     public function register()
+     {
+          return $this->twig->display('security/register.html.twig');
+     }
+
 }
