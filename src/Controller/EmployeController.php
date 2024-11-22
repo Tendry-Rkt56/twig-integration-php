@@ -22,7 +22,8 @@ class EmployeController extends Controller
                'data' => $data,
                'limit' => $limit,
                'count' => count($employes),
-               'maxPages' => $maxPages
+               'maxPages' => $maxPages,
+               'tris' => ['nom', 'prenom', 'email', 'addresse'],
           ]);
      }
 

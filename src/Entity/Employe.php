@@ -9,7 +9,8 @@ class Employe extends Entity
      {
           $sql = "SELECT * FROM employees WHERE id > :id";
           if (isset($data['search'])) {
-               $sql .= " AND '$data[colonne]' LIKE :search";
+               $colonne = $data['colonne'] ?? 'nom';
+               $sql .= " AND $colonne LIKE :search";
           }
           $sql .= " LIMIT $limit offset $offset";
           $query = $this->db->getConn()->prepare($sql);
