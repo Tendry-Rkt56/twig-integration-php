@@ -25,6 +25,11 @@ class Manager
           return self::$_db;
      }
 
+     /**
+      * @template T of object
+      * @param class-string<T> $className
+      * @return T 
+      */
      public function getEntity(string $className)
      {
           return new $className($this->getDb());

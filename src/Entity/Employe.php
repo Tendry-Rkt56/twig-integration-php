@@ -89,6 +89,11 @@ class Employe extends Entity
           return $query->execute();
      }
 
+     /**
+      * Permet de supprimer une ligne dans la base de donnée
+      * @param int $id
+      * @return bool
+      */
      public function delete(int $id)
      {
           $sql = "DELETE FROM employees WHERE id = :id";
